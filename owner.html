@@ -1,0 +1,280 @@
+<DOCTYPE HTML!>
+    <html ng-app="staffApp">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="" />
+        <!-- JQuery -->
+        <script src="js/jquery/jquery-1.11.3.min.js"></script>
+        <!-- Boostrap -->
+        <link rel="stylesheet" href="js/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="js/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
+        <script src="js/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+        <!-- Anugular JS -->
+        <script src="js/angular/angular-loader.min.js"></script>
+        <script src="js/angular/angular.min.js"></script>
+        <script src="js/angular/angular-route.min.js"></script>
+        <!-- My Script -->
+        <script src="staffjs/service.js"></script>
+        <script src="staffjs/controller.js"></script>
+        <!-- Import Font -->
+        <link rel="stylesheet" href="css/font_bb/stylesheet.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="css/font_web_fill/stylesheet.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="css/font_web_outline/stylesheet.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="css/font_candy/stylesheet.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="css/font_candy/stylesheet.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="css/font_mld/stylesheet.css" type="text/css" charset="utf-8" />
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/owner/owner.css">
+        <!-- MLD -->
+        <link rel="stylesheet" type="text/css" href="js/mld/material.css">
+        <script src="js/mld/material.min.js"></script>
+        <!-- DatePicker -->
+        <link rel="stylesheet" href="js/jquery/jquery-ui.css">
+        <script src="js/jquery/jquery-ui.js"></script>
+        <script>
+        $(document).ready(function() {
+
+            $(function() {
+                $("#from_picker").datepicker();
+            });
+            $(function() {
+                $("#to_picker").datepicker();
+            });
+
+            $(document).on("click", ".alert", function(e) {
+                bootbox.alert("Hello world!", function() {
+                    console.log("Alert Callback");
+                });
+            });
+        });
+        </script>
+        <title>
+            Owner
+        </title>
+    </head>
+
+    <body ng-controller="ownerCtr">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title"><font face='barid'>Owner [Generate Report]</font></span>
+                    <span class="mdl-layout-title" style="padding-left:5em;">
+                    <button style="border: 0px; background-color: transparent;" ng-click="ownerLogin()">
+                        <font face='barid'>LOGOUT&nbsp;&nbsp;
+                        <i class="glyphicon glyphicon-log-out"></i></font>
+                    </button>
+                    </span>
+                </div>
+            </header>
+            <!-- Time Period, Popular-Lower, Band -->
+            <main class="mdl-layout__content">
+                <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+                    <font face="barid">
+                        <div class="page-content">
+                            <center>
+                                <h5 style="color:#797979; font-family:'barid'">Owner</h5></br>
+                            </center>
+                            <div>
+                                <table width="100%">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p style="color:#797979; float:right;">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date From: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <input type="text" id="from_picker">
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p style="color:#797979;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date To: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <input type="text" id="to_picker">
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <center>
+                                                    <p style="color:#797979;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Type: </p>
+                                                    <select class="form-control" style="width:80%;">
+                                                        <option value="any">Select.....</option>
+                                                        <option value="P">Phone</option>
+                                                        <option value="M">Memory Card</option>
+                                                        <option value="Po">Power Bank</option>
+                                                    </select>
+                                                    </br>
+                                                    <button type="button" class="btn btn-primary" ng-click="genReport()">OK</button>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    </br>
+                                                    </br>
+                                                </td>
+                                            </tr>
+                                            <td id="phonePanel">
+                                                <p style="color:#797979; margin-left:130px;">Filter: </p>
+                                                <select class="form-control" style="width:70%; float:right;">
+                                                    <option value="any">Select.....</option>
+                                                    <option value="BRAND">Brand/Model</option>
+                                                    <option value="OS">OS</option>
+                                                    <option value="TYPE">PhoneType</option>
+                                                    <option value="DISPLAY">Display Size</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <div style="padding-left:100px;">
+                                                    Field: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Group:
+                                                    <br></br>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" value="">Profit</label>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" id="gender_check">Gender</label>
+                                                    <br>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" value="">Amount</label>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" value="">Age</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </br>
+                            </div>
+                            </br>
+                            </br>
+                            </br>
+                            <!-- Table Contents -->
+                            <div id="gender_table">
+                                <center>
+                                    <h5 style="color:#797979; font-family:'barid'">Product Summary</h5>
+                                    <h5 style="color:#797979; font-family:'barid'">From: 1/02/2015</h5>
+                                    <h5 style="color:#797979; font-family:'barid'">To: 1/12/2015</h5>
+                                    <h5 style="color:#797979; font-family:'barid'">Total Profit: 99,600</h5></center>
+                                <table class="table table-bordered" id="non-gender">
+                                    <tr style="background-color:gray;">
+                                        <th>Samsung : M</th>
+                                        <th>Amount</th>
+                                        <th>Profit</th>
+                                    </tr>
+                                    <tr>
+                                        <td>A7</td>
+                                        <td>20</td>
+                                        <td>20000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>NOTE 5</td>
+                                        <td>10</td>
+                                        <td>35000</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Total: 30</td>
+                                        <td>Total: 55000</td>
+                                    </tr>
+                                    <tr style="background-color:gray;">
+                                        <th>Samsung : F</th>
+                                        <th>Amount</th>
+                                        <th>Profit</th>
+                                    </tr>
+                                    <tr>
+                                        <td>A7</td>
+                                        <td>20</td>
+                                        <td>20000</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Total: 20</td>
+                                        <td>Total: 20000</td>
+                                    </tr>
+                                    <tr style="background-color:gray;">
+                                        <th>HTC : M</th>
+                                        <th>Amount</th>
+                                        <th>Profit</th>
+                                    </tr>
+                                    <tr>
+                                        <td>ONE</td>
+                                        <td>8</td>
+                                        <td>12300</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Total: 8</td>
+                                        <td>Total: 12300</td>
+                                    </tr>
+                                    <tr style="background-color:gray;">
+                                        <th>HTC : F</th>
+                                        <th>Amount</th>
+                                        <th>Profit</th>
+                                    </tr>
+                                    <tr>
+                                        <td>ONE</td>
+                                        <td>8</td>
+                                        <td>12300</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Total: 8</td>
+                                        <td>Total: 12300</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="tableContent">
+                                <center>
+                                    <h5 style="color:#797979; font-family:'barid'">Product Summary</h5>
+                                    <h5 style="color:#797979; font-family:'barid'">From: 1/02/2015</h5>
+                                    <h5 style="color:#797979; font-family:'barid'">To: 1/12/2015</h5>
+                                    <h5 style="color:#797979; font-family:'barid'">Total Profit: 67,300</h5></center>
+                                <table class="table table-bordered" id="non-gender">
+                                    <tr style="background-color:gray;">
+                                        <th>Samsung</th>
+                                        <th>Amount</th>
+                                        <th>Profit</th>
+                                    </tr>
+                                    <tr>
+                                        <td>A7</td>
+                                        <td>20</td>
+                                        <td>20000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>NOTE 5</td>
+                                        <td>10</td>
+                                        <td>35000</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Total: 30</td>
+                                        <td>Total: 55000</td>
+                                    </tr>
+                                    <tr style="background-color:gray;">
+                                        <th>HTC</th>
+                                        <th>Amount</th>
+                                        <th>Profit</th>
+                                    </tr>
+                                    <tr>
+                                        <td>ONE</td>
+                                        <td>8</td>
+                                        <td>12300</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Total: 8</td>
+                                        <td>Total: 12300</td>
+                                    </tr>
+                                </table>
+                                <br>
+                            </div>
+                        </div>
+                    </font>
+                </section>
+            </main>
+        </div>
+    </body>
+
+    </html>

@@ -1,0 +1,50 @@
+<!-- Content Center -->
+<div class="panel col-sm-12" id="centerContainner">
+    <div class="row" ng-controller="phoneMenuController">
+        <div id="band_tab" style="margin-top:-19px; margin-left: 0px;">
+            <center>
+                <button class="phoneType" ng-click="PowerbankClick()">Power Bank</button>
+                <button class="phoneType" ng-click="ChargingcableClick()">Charging Cable</button>
+                <button class="phoneType" ng-click="EarphoneClick()">Ear Phone</button>
+                <button class="phoneType active" ng-click="OtherAccessoryClick()">Other</button>
+            </center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="recommendList">
+                </br>
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__supporting-text" id="item_list">
+                        <label class="head_description">
+                            Other.</label>
+                        </br>
+                        <div ng-repeat="rec in recommendList">
+                            <div class="col-sm-6 col-md-4">
+                                </br>
+                                <div class="thumbnail">
+                                    <img src="{{rec.image}}" height="418" width="872" alt="...">
+                                    <div class="caption">
+                                        <h4>{{rec.product_name}}</h4>
+                                        <p style="color:#797979;" ng-repeat="detail in rec.description">
+                                            {{detail}}</br>
+                                        </p>
+                                        <p>Price: {{rec.price}} BTH</p>
+                                        <p>
+                                            <button class="mdl-button mdl-js-button mdl-button--accent myCart">
+                                                <font face="barid">ADD TO CART&nbsp;&nbsp;<i class="glyphicon glyphicon-shopping-cart"></i></font>
+                                            </button>
+                                            <button class="btn btn-default" ng-click="product_detail_commend($index)">More detail...</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- List of Recommend List [Use Ng-Repeat]-->
+</div>
+<!-- End Content -->

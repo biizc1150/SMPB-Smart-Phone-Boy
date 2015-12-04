@@ -1,0 +1,255 @@
+/*Modal Content*/
+
+#cart_mm {
+    width: 85%;
+}
+
+#regis_mm {
+    width: 50%;
+}
+
+#myRegis {
+    border-radius: 0px;
+}
+
+.modal-content.s {
+    border-radius: 0px;
+}
+
+
+/*Cart Modal*/
+
+
+/*Card Css*/
+
+.demo-card-wide.mdl-card {
+    width: 98%;
+    margin-left: 3px;
+}
+
+.demo-card-wide > .mdl-card__title {
+    color: #fff;
+    height: 176px;
+    /*background: url('../assets/demos/welcome_card.jpg') center / cover;*/
+}
+
+.demo-card-wide > .mdl-card__menu {
+    color: #fff;
+}
+
+#header {
+    background-color: white;
+    height: 80px;
+}
+
+@-webkit-keyframes buttonAnimate {
+    0% {
+        border-bottom-width: 0px;
+    }
+    100% {
+        border-bottom-width: 3px;
+    }
+}
+
+@keyframes buttonAnimate {
+    0% {
+        border-bottom-width: 0px;
+    }
+    100% {
+        border-bottom-width: 3px;
+    }
+}
+
+.col-sm-9.myBar {
+    height: 80px;
+}
+
+.menuItem {
+    float: right;
+    margin-right: 10px;
+    width: 100px;
+    height: 100%;
+    margin-left: 0px;
+    border-width: 0px;
+    color: black;
+    background-color: white;
+    /*Animate*/
+    border-bottom-width: 3px;
+    border-bottom-color: #BB1224;
+}
+
+.searchBar {
+    height: 100%;
+}
+
+.menuItem:hover {
+    background-color: #f96e5b;
+    color: white;
+    border-bottom-color: black;
+    -webkit-animation-name: buttonAnimate;
+    /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 0.8s;
+    /* Chrome, Safari, Opera */
+    animation-name: buttonAnimate;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+}
+
+.menuItem:active {
+    background-color: #BB1224;
+}
+
+.homePageBtn {
+    background-color: white;
+    border: none;
+    float: left;
+}
+
+#serchBar {
+    width: 400px;
+}
+
+
+/*Menu Bar*/
+
+#menuBar {
+    height: 55px;
+    background-color: #316F59;
+    color: white;
+    border-radius: 0px;
+}
+
+#insideMenu {
+    height: 100%;
+    border-radius: 0px;
+    font-size: 15px;
+    line-height: 50px;
+}
+
+.barItem {
+    background-color: #316F59;
+    border: none;
+    width: 110px;
+    margin-right: 20px;
+}
+
+.barItem.home {
+    background-color: gray;
+    border: none;
+    width: 110px;
+    margin-right: 20px;
+}
+
+.barItem:hover {
+    background-color: #BB1224;
+}
+
+.barItem:active {
+    background-color: gray;
+}
+
+
+/*Content View*/
+
+.panel {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    border: none;
+    background-color: #E4E5E6;
+    color: #707172;
+    border-radius: 0px;
+}
+
+.head_description {
+    font-size: 20px;
+    border: 0px solid #F55649;
+    color: black;
+}
+
+
+/*Left Bar*/
+
+#leftContainner {
+    background-color: white;
+    color: black;
+}
+
+.LeftMenu_Des {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    float: left;
+    background-color: #F55649;
+    color: white;
+}
+
+.LeftMenu_Button {
+    border: none;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    background-color: white;
+    color: gray;
+    text-align: left;
+}
+
+#icon {
+    position: absolute;
+}
+
+#login_panel,
+#search_panel {
+    margin-left: 4%;
+    margin-right: 4%;
+    padding-bottom: 8px;
+    width: 90%;
+    border: 0px solid #F55649;
+    border-bottom-color: #E7E7E7;
+    border-bottom-width: 2px;
+}
+
+
+/*End Left Bar*/
+
+
+/*Center Bar*/
+
+#centerContainner {
+    background-color: #E7E7E7;
+    color: gray;
+}
+
+#item_list {
+    /*padding-left: 7%;*/
+}
+
+
+/*End Center Bar*/
+
+#recommendList {
+    /*background-color: orange;*/
+}
+
+.mdl-button.mdl-js-button.mdl-button--accent.myColor {
+    color: #F55649;
+    width: 100%;
+}
+
+.mdl-button.mdl-js-button.mdl-button--accent.myCart {
+    color: #F55649;
+}
+
+.mdl-textfield__label.my {
+    color: red;
+}
+
+
+/*Tmp*/
+
+
+/*#header{
+    background-color: gray;
+}*/

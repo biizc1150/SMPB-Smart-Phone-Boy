@@ -1,0 +1,94 @@
+<!-- Content Center -->
+<div class="panel col-sm-12" id="centerContainner">
+    <div class="row" ng-controller="phoneMenuController">
+        <div id="band_tab" style="margin-top:-19px; margin-left: 0px;">
+            <center>
+                <button class="phoneType" ng-click="PowerbankClick()">Power Bank</button>
+                <button class="phoneType active" ng-click="ChargingcableClick()">Memory Card</button>
+            </center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="recommendList">
+                </br>
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__supporting-text" id="item_list">
+                        <label class="head_description">
+                            Memory Card Product(s).</label>
+                        </br>
+                        <div ng-repeat="card in allCard">
+                            <div class="col-sm-6 col-md-4">
+                                </br>
+                                <div class="thumbnail">
+                                    <img src="{{card.Image}}">
+                                    <div class="caption">
+                                        <h4>{{card.Brand}} - {{card.Model}}</h4>
+                                        <p style="color:#797979;">
+                                            - Capacity: {{card.Capacity}} GB</br>
+                                            - Brand: {{card.Brand}}</br>
+                                            - Model: {{card.Model}}
+                                        </p>
+                                        <p>Price: {{card.SellingPrice}} BTH</p>
+                                        <p>
+                                            <button class="mdl-button mdl-js-button mdl-button--accent myCart"
+                                            ng-click="addToCart_CARD($index)">
+                                                <font face="barid">ADD TO CART&nbsp;&nbsp;<i class="glyphicon glyphicon-shopping-cart"></i></font>
+                                            </button>
+                                            <button class="btn btn-default" ng-click="card_detail_commend($index)">More detail...</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Detail Modal -->
+    <font face="barid">
+        <div class="modal fade" id="card_detail_modal" role="dialog">
+            <div class="modal-dialog" id="cart_mm">
+                <!-- Modal content of Carting....-->
+                <div class="modal-content s">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><font face="barid">{{cardItemDetail.Brand}} - {{cardItemDetail.Model}}</font></h4>
+                    </div>
+                    <div class="modal-body">
+                        <table width="70%">
+                            <td>
+                                <center>
+                                    <img src="{{cardItemDetail.Image}}" width="270px" height="150px">
+                                    <br>
+                                    <h3><font face="barid">{{cardItemDetail.Model}}</font></h3>
+                                    <h4><font face="barid">{{cardItemDetail.SellingPrice}} BTH.</font></h4>
+                                </center>
+                            </td>
+                            <td>
+                                - Capacity: {{cardItemDetail.Capacity}} GB</br>
+                                - Brand: {{cardItemDetail.Brand}}</br>
+                                - Model: {{cardItemDetail.Model}}</br>
+                                </br>
+                                </br>
+                                - Other Detail</br>
+                                <div ng-repeat="dd in cardItemDetail.Description">
+                                    - {{dd.detail}}
+                                </div>
+                            </td>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="mdl-button mdl-js-button mdl-button--accent myCart" ng-click="addToCart_Detail('card')">
+                            <font face="barid">Add to cart&nbsp;&nbsp;<i class="glyphicon glyphicon-shopping-cart"></i></font>
+                        </button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-left:30px;">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </font>
+    <!-- List of Recommend List [Use Ng-Repeat]-->
+</div>
+<!-- End Content -->

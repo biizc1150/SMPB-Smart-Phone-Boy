@@ -1,0 +1,55 @@
+Owner
+<table style="width:100%">
+                                <tr>
+                                    <th>
+                                        <center>Time Period: </center>
+                                    </th>
+                                    <th>
+                                        <center>Rate: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center>
+                                    </th>
+                                    <th>
+                                        <center>Band: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center>
+                                    </th>
+                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        </br>
+                                        <center>
+                                            <select class="form-control" style="width:50%;" id="time_period">
+                                                <option>Select..</option>
+                                                <option>Daily</option>
+                                                <option>Weekly</option>
+                                                <option>Monthly</option>
+                                                <option>Annum</option>
+                                            </select>
+                                        </center>
+                                    </td>
+                                    <td>
+                                        </br>
+                                        <center>
+                                            <select class="form-control" style="width:50%;" id="rate">
+                                                <option>Select..</option>
+                                                <option>Lowest</option>
+                                                <option>Highest</option>
+                                            </select>
+                                        </center>
+                                    </td>
+                                    <td>
+                                        </br>
+                                        <center>
+                                            <select class="form-control" style="width:50%;" id="band">
+                                                <option>Select..</option>
+                                                <option>iOS</option>
+                                                <option>Samsung</option>
+                                                <option>HTC</option>
+                                                <option>Oppo</option>
+                                            </select>
+                                        </center>
+                                    </td>
+                                    <td>
+                                        </br>
+                                        <button type="button" class="btn btn-primary" ng-click="genReport()">GENERATE</button>
+                                    </td>
+                                </tr>
+                            </table>

@@ -1,0 +1,479 @@
+<DOCTYPE HTML!>
+    <html ng-app="staffApp">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="" />
+        <!-- JQuery -->
+        <script src="js/jquery/jquery-1.11.3.min.js"></script>
+        <!-- Boostrap -->
+        <link rel="stylesheet" href="js/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="js/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
+        <script src="js/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+        <!-- Anugular JS -->
+        <script src="js/angular/angular-loader.min.js"></script>
+        <script src="js/angular/angular.min.js"></script>
+        <script src="js/angular/angular-route.min.js"></script>
+        <!-- My Script -->
+        <script src="staffjs/service.js"></script>
+        <script src="staffjs/controller.js"></script>
+        <!-- Import Font -->
+        <link rel="stylesheet" href="css/font_bb/stylesheet.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="css/font_web_fill/stylesheet.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="css/font_web_outline/stylesheet.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="css/font_candy/stylesheet.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="css/font_candy/stylesheet.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="css/font_mld/stylesheet.css" type="text/css" charset="utf-8" />
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/staff/staff.css">
+        <!-- MLD -->
+        <link rel="stylesheet" type="text/css" href="js/mld/material.css">
+        <script src="js/mld/material.min.js"></script>
+        <title>
+            Staff Inventory
+        </title>
+    </head>
+
+    <body ng-controller="staffCtr">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title"><font face='barid'>Inventory Staff</font></span>
+                    <span class="mdl-layout-title" style="padding-left:5em;">
+                    <button style="border: 0px; background-color: transparent;" ng-click="addProduct()">
+                        <font face='barid'>ADD PRODUCT&nbsp;&nbsp;
+                        <i class="glyphicon glyphicon-plus"></i></font>
+                    </button>
+                    </span>
+                    <span class="mdl-layout-title" style="padding-left:5em;">
+                    <button style="border: 0px; background-color: transparent;" ng-click="staffLogout()">
+                        <font face='barid'>LOGOUT&nbsp;&nbsp;
+                        <i class="glyphicon glyphicon-log-out"></i></font>
+                    </button>
+                    </span>
+                </div>
+                <!-- Tabs -->
+                <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                    <a href="#scroll-tab-3" class="mdl-layout__tab is-active">
+                        <font face='barid'>All Product(s).</font>
+                    </a>
+                    <a href="#scroll-tab-4" class="mdl-layout__tab">
+                        <font face='barid'>Order Status.</font>
+                    </a>
+                </div>
+            </header>
+            <main class="mdl-layout__content">
+                <section class="mdl-layout__tab-panel" id="scroll-tab-4">
+                    <div class="page-content">
+                        <font face="barid">
+                            <div>&nbsp;&nbsp;
+                                <i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp;
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" />
+                                    <label class="mdl-textfield__label" for="sample3">Search Order</label>
+                                </div>&nbsp;&nbsp;
+                                <button type="button" class="btn" style="background-color:#303AA5; color:white;">Search
+                                </button>
+                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <button class="headButton">ORDER_ID</button>
+                                        </th>
+                                        <th>
+                                            <button class="headButton">STATUS</button>
+                                        </th>
+                                        <th></th>
+                                        <th>
+                                            Product Detail(s).
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>OR_01</td>
+                                        <td>&nbsp;&nbsp;P</td>
+                                        <td>
+                                            <center>
+                                                <div>
+                                                    <button type="button" class="btn btn-danger">Pending</button>
+                                                    <button type="button" class="btn btn-warning">Delivery</button>
+                                                    <button type="button" class="btn btn-success">Sent</button>
+                                                </div>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary" ng-click="viewHistoryDetail()">DETAIL</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>OR_02</td>
+                                        <td>&nbsp;&nbsp;D
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <div>
+                                                    <button type="button" class="btn btn-danger">Pending</button>
+                                                    <button type="button" class="btn btn-warning">Delivery</button>
+                                                    <button type="button" class="btn btn-success">Sent</button>
+                                                </div>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary" ng-click="viewHistoryDetail()">DETAIL</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>OR_03</td>
+                                        <td>&nbsp;&nbsp;S</td>
+                                        <td>
+                                            <center>
+                                                <div>
+                                                    <button type="button" class="btn btn-danger">Pending</button>
+                                                    <button type="button" class="btn btn-warning">Delivery</button>
+                                                    <button type="button" class="btn btn-success">Sent</button>
+                                                </div>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary" ng-click="viewHistoryDetail()">DETAIL</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </font>
+                    </div>
+                </section>
+                <section class="mdl-layout__tab-panel is-active" id="scroll-tab-3">
+                    <div class="page-content">
+                        <font face="barid">
+                            <center>
+                                <div class="btn-group btn-group-justified" style="width:100%;">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn" style="background-color:#303AA5; color:white; border-radius:0px; border-right-width: 1px;
+                                        border-right-color: white;" ng-click="allProductKind('phone')">Phone</button>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn" style="background-color:#303AA5; color:white; border-radius:0px; border-right-width: 1px; 
+                                        border-right-color: white;" ng-click="allProductKind('power')">Power Bank</button>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn" style="background-color:#303AA5; color:white; border-radius:0px; border-right-width: 1px;
+                                        border-right-color: white;" ng-click="allProductKind('card')">Memory Card</button>
+                                    </div>
+                                </div>
+                            </center>
+                            <div>&nbsp;&nbsp;
+                                <i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp;
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" ng-model="searchText" />
+                                    <label class="mdl-textfield__label" for="sample3">Search Product</label>
+                                </div>&nbsp;&nbsp;
+                                <button type="button" class="btn" style="background-color:#303AA5; color:white;">Search
+                                </button>
+                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <button class="headButton" ng-click="sortList('id')">ProductID</button>
+                                        </th>
+                                        <th>
+                                            <button class="headButton" ng-click="sortList()">Brand</button>
+                                        </th>
+                                        <th>
+                                            <button class="headButton" ng-click="sortList()">Model</button>
+                                        </th>
+                                        <th>
+                                            <button class="headButton" ng-click="sortList()">Selling Price</button>
+                                        </th>
+                                        <th>
+                                            <button class="headButton" ng-click="sortList()">Amount</button>
+                                        </th>
+                                        <th>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in orderItem | filter:searchText">
+                                        <td>{{item.ProductID}}</td>
+                                        <td>{{item.Brand}}</td>
+                                        <td>{{item.Model}}</td>
+                                        <td>{{item.SellingPrice}}</td>
+                                        <td>{{item.Amount}}</td>
+                                        <td>
+                                            <!-- ADD AMOUNT -->
+                                            <button type="button" class="btn btn-success" ng-click="addAmount($index)">
+                                                <i class="glyphicon glyphicon-plus"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-warning" style="margin-left:10px;" 
+                                            ng-click="editProduct($index)">
+                                                <i class="glyphicon glyphicon-pencil"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger" style="margin-left:10px;" ng-click="deleteProduct($index)">
+                                                <i class="glyphicon glyphicon-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </font>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <!-- Add Product Modal -->
+        <font face="barid">
+            <div class="modal fade" id="addproduct_modal" role="dialog">
+                <div class="modal-dialog" style="width:90%">
+                    <!-- Modal content of Carting....-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"><font face="barid">Product Adding..</font></h4>
+                        </div>
+                        <!-- PUT HEADER TYPE -->
+                        </br>
+                        <center>
+                            <div class="btn-group btn-group-justified" style="width:90%;">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary" ng-click="phone_panel()">Phone</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary" ng-click="powerbank_panel()">Power Bank</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary" ng-click="card_panel()">Memory Card</button>
+                                </div>
+                            </div>
+                        </center>
+                        </br>
+                        <!-- END HEADER TYPE -->
+                        <div class="modal-body">
+                            <!-- Start Info -->
+                            <label>Product Image: </label>
+                            </br>
+                            <label style="color:gray;font-size:12px">This size must be 300*188 only</label>
+                            <input type='file' id="imgInp" />
+                            <center><img id="blah" src="#" alt="your image" /></center>
+                            </br>
+                            <!-- PowerBank Panel -->
+                            <div id="power_panel">
+                                <center>
+                                    <p style="font-size:20px;">Power Bank Adding..</p>
+                                </center>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" />
+                                    <label class="mdl-textfield__label" for="sample3">Brand</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" />
+                                    <label class="mdl-textfield__label" for="sample3">Model</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" />
+                                    <label class="mdl-textfield__label" for="sample3">Purchasing Price</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" />
+                                    <label class="mdl-textfield__label" for="sample3">Amount</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" />
+                                    <label class="mdl-textfield__label" for="sample3">Capacity</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" />
+                                    <label class="mdl-textfield__label" for="sample3">Description</label>
+                                </div>
+                            </div>
+                            <!-- Mem Panel -->
+                            <div id="mem_panel">
+                                <center>
+                                    <p style="font-size:20px;">Memory Card Adding..</p>
+                                </center>
+                                <label>Memory Type: </label>
+                                <div class="combo_selection">
+                                    <select class="form-control">
+                                        <option value="any">Select.....</option>
+                                        <option value="SD">SD CARD</option>
+                                        <option value="Micro-SD">MICRO SD CARD</option>
+                                    </select>
+                                </div>
+                                </br>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" />
+                                    <label class="mdl-textfield__label" for="sample3">Brand</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" />
+                                    <label class="mdl-textfield__label" for="sample3">Model</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" />
+                                    <label class="mdl-textfield__label" for="sample3">Purchasing Price</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" />
+                                    <label class="mdl-textfield__label" for="sample3">Amount</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" />
+                                    <label class="mdl-textfield__label" for="sample3">Capacity</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" />
+                                    <label class="mdl-textfield__label" for="sample3">Description</label>
+                                </div>
+                            </div>
+                            <!-- Phone Panel -->
+                            <div id="phone_panel">
+                                <center>
+                                    <p style="font-size:20px;">Phone Adding..</p>
+                                </center>
+                                <label>SELECT BAND: </label>
+                                <div class="combo_selection">
+                                    <select class="form-control" id="insert_band_phone">
+                                        <option value="any">Select.....</option>
+                                        <option value="apple">Apple</option>
+                                        <option value="sam">Samsung</option>
+                                        <option value="htc">HTC</option>
+                                        <option value="oppo">OPPO</option>
+                                    </select>
+                                </div>
+                                </br>
+                                <label>Operating System:</label>
+                                <div class="combo_selection">
+                                    <select class="form-control" id="insert_OS_phone">
+                                        <option value="any">Select.....</option>
+                                        <option value="ios">iOS</option>
+                                        <option value="android">Android</option>
+                                        <option value="win">Window phone</option>
+                                    </select>
+                                </div>
+                                </br>
+                                <label>KIND OF USING: </label>
+                                <div class="combo_selection">
+                                    <select class="form-control" id="insert_kind_phone">
+                                        <option value="any">Select.....</option>
+                                        <option value="P">Photographer</option>
+                                        <option value="G">Gaming</option>
+                                        <option value="T">Typing</option>
+                                    </select>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" id="insert_purchase_phone"/>
+                                    <label class="mdl-textfield__label" for="sample3"></label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" id="insert_selling_phone"/>
+                                    <label class="mdl-textfield__label" for="sample3">Selling Price</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" id="insert_screenSize_phone"/>
+                                    <label class="mdl-textfield__label" for="sample3">Screen Size</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" id="insert_amount_phone"/>
+                                    <label class="mdl-textfield__label" for="sample3">Amount</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <input class="mdl-textfield__input" type="text" id="insert_model_phone"/>
+                                    <label class="mdl-textfield__label" for="sample3">Model</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                    <textarea class="mdl-textfield__input" type="text" id="insert_des_phone"></textarea>
+                                    <label class="mdl-textfield__label" for="sample3">Description</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="mdl-button mdl-js-button mdl-button--accent" ng-click="insertProduct()" style="color:green;">
+                                <font face="barid">Add Product&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-inbox"></i></font>
+                            </button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </font>
+        <!-- End Product Modal -->
+        <!-- PURCHASE HISTORY DETAIL MODAL -->
+        <font face="barid">
+            <div class="modal fade" id="history_detail" role="dialog">
+                <div class="modal-dialog" id="cart_mm">
+                    <!-- Modal content of Carting....-->
+                    <div class="modal-content s">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"><font face="barid">All Item(s).</font></h4>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Product_ID</th>
+                                        <th>Product_Title</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-model="cartItem" ng-repeat="cart in allCartItems">
+                                    <tr>
+                                        <td>PP_11</td>
+                                        <td>iPhone6s</td>
+                                        <td>1</td>
+                                        <!--Product No -->
+                                        <td>
+                                            <button type="button" class="btn btn-primary" ng-click="viewHistoryDetail($index)">DETAIL</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <p>Total Price: ????? BTH.</p>
+                            </br>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">DONE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </font>
+        <!-- END PURCHASE HISTORY DETAIL MODAL -->
+        <!-- UPDATE AMOUNT MODAL -->
+        <font face="barid">
+            <div class="modal fade" id="updateAmount_staff" role="dialog">
+                <div class="modal-dialog" id="cart_mm">
+                    <!-- Modal content of Carting....-->
+                    <div class="modal-content s">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"><font face="barid">Update Amount</font></h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                <p>Current Amount: </p>
+                                <input class="mdl-textfield__input" type="text" value="{{currentAmount}}" integer readonly/>
+                                <label class="mdl-textfield__label" for="sample3"></label>
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                                <p>Incresing Amount: </p>
+                                <input class="mdl-textfield__input" type="text" ng-model="increse_amount"/>
+                                <label class="mdl-textfield__label" for="sample3"></label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Insert Amount</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </font>
+        <!-- UPDATE AMOUNT MODAL -->
+    </body>
+
+    </html>

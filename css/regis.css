@@ -1,0 +1,36 @@
+#ll{
+	width: 250px;
+	border-bottom-width: 0px;
+}
+
+#datepicker{
+	border-style: solid;
+	border-width: 1px;
+	border-top-width: 0px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-bottom-color: #DADADA;
+
+	
+	width: 59%;
+	text-align: center;
+}
+
+
+/*Cart*/
+
+#del_from_cart{
+	border:none;
+	background-color: #F7F7F7;
+	border-radius: 5px;
+}
+
+#del_from_cart:hover{
+	background-color: black;
+	color: white;
+}
+
+#del_from_cart:active{
+	background-color: #f96e5b;
+	color: white;
+}

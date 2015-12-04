@@ -1,0 +1,671 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html ng-app="scotchApp">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="" />
+    <!-- JQuery -->
+    <script src="js/jquery/jquery-1.11.3.min.js"></script>
+    <!-- Boostrap -->
+    <link rel="stylesheet" href="js/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
+    <script src="js/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- Anugular JS -->
+    <script src="js/angular/angular-loader.min.js"></script>
+    <script src="js/angular/angular.min.js"></script>
+    <script src="js/angular/angular-route.min.js"></script>
+    <!-- MLD -->
+    <link rel="stylesheet" type="text/css" href="js/mld/material.css">
+    <script src="js/mld/material.min.js"></script>
+    <!-- My Script -->
+    <script src="js/service.js"></script>
+    <script src="js/controller.js"></script>
+    <!-- Routing -->
+    <script src="app.js"></script>
+    <!-- Modal View JS -->
+    <script src="js/myModal/myModal.js"></script>
+    <link rel="stylesheet" type="text/css" href="js/mld/material.css">
+    <script src="js/mld/material.min.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="css/my.css" />
+    <link rel="stylesheet" href="css/phone_css/phone.css" />
+    <link rel="stylesheet" href="css/accessory_css/accessory.css">
+    <link rel="stylesheet" href="css/regis.css">
+    <!-- Import Font -->
+    <link rel="stylesheet" href="css/font_bb/stylesheet.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/font_web_fill/stylesheet.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/font_web_outline/stylesheet.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/font_candy/stylesheet.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/font_candy/stylesheet.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/font_mld/stylesheet.css" type="text/css" charset="utf-8" />
+    <!-- Customize Header -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- SlideShow -->
+    <link rel="stylesheet" href="js/slideshow/slideshow.css">
+    <title>Smart Phone Boy</title>
+    <!-- DatePicker -->
+    <link rel="stylesheet" href="js/jquery/jquery-ui.css">
+    <script src="js/jquery/jquery-ui.js"></script>
+    <!-- sweetAlert  -->
+    <script src="bootbox.min.js"></script>
+    <script src="js/sweetalert/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="js/sweetalert/sweetalert.css">
+    <script>
+    $(document).ready(function() {
+
+        $(function() {
+            $("#datepicker").datepicker();
+        });
+        $(function() {
+            $("#datepicker_update").datepicker();
+        });
+
+        $(document).on("click", ".alert", function(e) {
+            bootbox.alert("Hello world!", function() {
+                console.log("Alert Callback");
+            });
+        });
+    });
+    </script>
+</head>
+
+<body ng-controller="mainController">
+    <!-- MAIN CONTENT AND INJECTED VIEWS -->
+    <!-- Header -->
+    <font face="barid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="header">
+                    <div class="col-sm-3">
+                        <button class="homePageBtn" ng-click="homepage()"><img src="img/BANNER2.png" height="80" width="320"></button>
+                    </div>
+                    <div class="col-sm-9 myBar">
+                        <button class="menuItem" ng-click="aboutUsPage()"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;ABOUT US</button>
+                        <button class="menuItem" id="cartModal" ng-click="cartList()"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;&nbsp;CART</button>
+                        <button class="menuItem" id="regisModal" ng-click="registor()"><i class="glyphicon glyphicon-log-in"></i>&nbsp;&nbsp;REGISTER</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </font>
+    <!-- End Header -->
+    <div id='cssmenu'>
+        <center>
+            <ul>
+                <li class='active' id="homepage_tab_class">
+                    <a ng-click="homepage()">
+                        <span><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;HOME</span></a>
+                </li>
+                <li id="phonepage_tab_class">
+                    <a ng-click="phonepage()">
+                        <span><i class="glyphicon glyphicon-phone"></i>&nbsp;&nbsp;PHONES</span></a>
+                </li>
+                <li id="accessorypage_tab_class">
+                    <a ng-click="accessorypage()">
+                        <span><i class="glyphicon glyphicon-tasks"></i>&nbsp;&nbsp;ACCESSORIES</span></a>
+                </li>
+            </ul>
+        </center>
+    </div>
+    <!-- End Menu Bar -->
+    <!-- Start Content -->
+    <font face="barid">
+        <table class="table" style="background-color: #E7E7E7;">
+            <tbody>
+                <!-- Left Container -->
+                <td class="panel col-sm-3" id="leftContainner">
+                    <!-- Login Div -->
+                    <div class="row">
+                        <div class="col-sm-3" id="login_panel">
+                            </br>
+                            <div class="LeftMenu_Des">
+                                &nbsp;&nbsp;<i class="material-icons">account_circle</i>
+                                <label id="icon">&nbsp;&nbsp;USER LOGIN</label>
+                            </div>
+                            <br>
+                            <div id="login_field_panel" style="border:none;">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" id="username_login" />
+                                    <label class="mdl-textfield__label" for="sample3">Username</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="password" id="password_login" />
+                                    <label class="mdl-textfield__label" for="sample3">Password</label>
+                                </div>
+                                <center>
+                                    <button class="mdl-button mdl-js-button mdl-button--accent myColor" ng-click="login()">
+                                        <font face="barid">LOGIN&nbsp;&nbsp;
+                                            <i class="glyphicon glyphicon-log-in"></i></font>
+                                    </button>
+                                </center>
+                            </div>
+                            <div id="login_detail_panel" style="border:none;">
+                                <!-- <h6 style="color:#797979;"><font face="barid">Username:</font></h6>
+                                <p style="color:#797979;">{{username}}</p> -->
+                                <center>
+                                    <h6 style="color:#797979;"><font face="barid">Welcome</h6></center>
+                                <h6 style="color:#797979;"><font face="barid">Fullname: </h6>
+                                <p style="color:#797979;">{{fullname}}</p>
+                                <h6 style="color:#797979;"><font face="barid">E-Mail: </h6>
+                                <p style="color:#797979;">{{email}}</p>
+                                <h6 style="color:#797979;"><font face="barid">Phone-No.: </h6>
+                                <p style="color:#797979;">{{userPhone}}</p>
+                                <h6 style="color:#797979;"><font face="barid">Address: </h6>
+                                <textarea style="color:#797979; width:100%; height: 120px; 
+                                border:solid 0px;" id="address_user" readonly>{{address}}</textarea>
+                                <center>
+                                    </br>
+                                    </br>
+                                    <button class="mdl-button mdl-js-button mdl-button--accent" style="color:#346272;" ng-click="purchase_history()">
+                                        <font face="barid">PURCHASE HISTORY&nbsp;&nbsp;
+                                            <i class="glyphicon glyphicon-save-file"></i></font>
+                                    </button>
+                                    <button class="mdl-button mdl-js-button mdl-button--accent" style="color:#797979;" ng-click="updateInfo()">
+                                        <font face="barid">UPDATE INFO&nbsp;&nbsp;
+                                            <i class="glyphicon glyphicon-pencil"></i></font>
+                                    </button>
+                                    <button class="mdl-button mdl-js-button mdl-button--accent myColor" ng-click="logout()">
+                                        <font face="barid">LOGOUT&nbsp;&nbsp;
+                                            <i class="glyphicon glyphicon-log-in"></i></font>
+                                    </button>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Login Dif -->
+                    <div class="row">
+                        <div class="col-sm-3" id="search_panel">
+                            </br>
+                            </br>
+                            </br>
+                            <div class="LeftMenu_Des">
+                                &nbsp;&nbsp;<i class="material-icons">search</i>
+                                <label id="icon">&nbsp;&nbsp;SEARCH PANEL</label>
+                            </div>
+                            </br>
+                            </br>
+                            <!-- Phone search panel -->
+                            <div id="phone_search_panel">
+                                <label>Filter: </label>
+                                <input type="text" class="form-control" id="band_serch_filter" placeholder="Fill in model of the product.">
+                                <br>
+                                <label>SELECT BAND: </label>
+                                <div class="combo_selection">
+                                    <select class="form-control" id="band_phone_search">
+                                        <option value="any">Select.....</option>
+                                        <option value="apple">Apple</option>
+                                        <option value="sam">Samsung</option>
+                                        <option value="htc">HTC</option>
+                                        <option value="oppo">OPPO</option>
+                                    </select>
+                                </div>
+                                </br>
+                                <label>OPERATING SYSTEM: </label>
+                                <div class="combo_selection">
+                                    <select class="form-control" id="os_phone_search">
+                                        <option value="any">Select.....</option>
+                                        <option value="ios">iOS</option>
+                                        <option value="android">Android</option>
+                                        <option value="window">Window-Phone</option>
+                                    </select>
+                                </div>
+                                </br>
+                                <label>SCREEN SIZE: </label>
+                                <div class="combo_selection">
+                                    <select class="form-control" id="screen_phone_search">
+                                        <option value="any">Select.....</option>
+                                        <option value="6">4-6 inch</option>
+                                        <option value="8">6-8 inch</option>
+                                        <option value="99">&nbsp;>&nbsp;8&nbsp;inch</option>
+                                    </select>
+                                </div>
+                                <br>
+                                <label>KIND OF USING: </label>
+                                <div class="combo_selection">
+                                    <select class="form-control" id="kind_phone_search">
+                                        <option value="any">Select.....</option>
+                                        <option value="P">Photographer</option>
+                                        <option value="G">Gaming</option>
+                                        <option value="T">Typing</option>
+                                    </select>
+                                </div>
+                                </br>
+                                <label>PRICE RATE: (BATH)</label>
+                                <div class="combo_selection">
+                                    <select class="form-control" id="price_phone_search">
+                                        <option value="any">Select.....</option>
+                                        <option value="10000">0 - 10000</option>
+                                        <option value="15000">10000 - 15000</option>
+                                        <option value="99">15000+</option>
+                                    </select>
+                                </div>
+                                </br>
+                                <!-- Serach Field Area -->
+                                <center>
+                                    <button class="mdl-button mdl-js-button mdl-button--accent myColor" ng-click="search('phone')">
+                                        <font face="barid">SEARCH&nbsp;&nbsp;
+                                            <i class="glyphicon glyphicon-search"></i></font>
+                                    </button>
+                                </center>
+                            </div>
+                            <!-- End Phone Search Panel -->
+                            <!-- Powerbank Search Panel -->
+                            <div id="accessory_search_panel_powerbank">
+                                <label>Capacity: </label>
+                                <div class="combo_selection">
+                                    <select class="form-control" id="powerbank_capacity_search">
+                                        <option value="any">Select.....</option>
+                                        <option value="5000">2000-5000mAh</option>
+                                        <option value="10000">5000-10000mAh</option>
+                                        <option value="20000">10000-20000</option>
+                                        <option value="99">20000</option>
+                                    </select>
+                                </div>
+                                </br>
+                                <!-- Serach Field Area -->
+                                <center>
+                                    <button class="mdl-button mdl-js-button mdl-button--accent myColor" ng-click="search('powerbank')">
+                                        <font face="barid">SEARCH&nbsp;&nbsp;
+                                            <i class="glyphicon glyphicon-search"></i></font>
+                                    </button>
+                                </center>
+                            </div>
+                            <!-- End Powerbank Search Panel -->
+                            <!-- Card Search Panel -->
+                            <div id="accessory_search_panel_card">
+                                <label>Capacity: </label>
+                                <div class="combo_selection">
+                                    <select class="form-control" id="card_cap_search">
+                                        <option value="any">Select.....</option>
+                                        <option value="4">&nbsp;
+                                            <&nbsp;4GB</option>
+                                                <option value="16">4-16 GB</option>
+                                                <option value="32">16-32 GB</option>
+                                                <option value="99">32+ GB</option>
+                                    </select>
+                                </div>
+                                </br>
+                                <label>Memory Type: </label>
+                                <div class="combo_selection">
+                                    <select class="form-control" id="card_type_search">
+                                        <option value="any">Select.....</option>
+                                        <option value="SD">SD CARD</option>
+                                        <option value="Micro-SD">MICRO SD CARD</option>
+                                    </select>
+                                </div>
+                                </br>
+                                <!-- Serach Field Area -->
+                                <center>
+                                    <button class="mdl-button mdl-js-button mdl-button--accent myColor" ng-click="search('card')">
+                                        <font face="barid">SEARCH&nbsp;&nbsp;
+                                            <i class="glyphicon glyphicon-search"></i></font>
+                                    </button>
+                                </center>
+                            </div>
+                            <!-- End Card Search Panel -->
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div id="main">
+                        <div class="row" id="slideShow_div">
+                            <div class="col-sm-12">
+                                <!-- SliderShow -->
+                                <div class="css-slideshow" id="slideshow">
+                                </div>
+                                <!-- End SliderShow -->
+                            </div>
+                        </div>
+                        <div ng-view></div>
+                        <!-- angular templating -->
+                        <!-- this is where content will be injected -->
+                    </div>
+                </td>
+            </tbody>
+        </table>
+    </font>
+    <!-- Tmp Modal -->
+    <!-- Cart Modal -->
+    <font face="barid">
+        <div class="modal fade" id="myCart" role="dialog">
+            <div class="modal-dialog" id="cart_mm">
+                <!-- Modal content of Carting....-->
+                <div class="modal-content s">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><font face="barid">All item(s) in cart.</font></h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Product Image.</th>
+                                    <th>Product No.</th>
+                                    <th>Product name.</th>
+                                    <th>Price. (BTH)</th>
+                                    <th>Amount.</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody ng-model="cartItem" ng-repeat="cart in allCartItems">
+                                <tr>
+                                    <td><img src="{{cart.image}}" width="60" height="60"></td>
+                                    <td>{{$index+1}}</td>
+                                    <!--Product No -->
+                                    <td>{{cart.name}}</td>
+                                    <!-- Product Name -->
+                                    <td>{{cart.price}}</td>
+                                    <!-- Price -->
+                                    <!-- Amount -->
+                                    <td>
+                                        <select class="form-control" ng-model="activity" ng-options="activity as activity.name for activity in activities" ng-change="amountChange($index)">
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <button id="del_from_cart" ng-click="del_from_cart($index)"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <p style="font-size:20px" id="totalPrice_cart">Total Price: {{totalPrice}} BTH</p>
+                        <button class="mdl-button mdl-js-button mdl-button--accent myCart" ng-click="confirm_purchase()">
+                            <font face="barid">Confirm Purchase&nbsp;&nbsp;<i class="glyphicon glyphicon-shopping-cart"></i></font>
+                        </button>
+                        <button type="button" class="btn btn-warning" ng-click="clearCart()">
+                            Clear Cart&nbsp;&nbsp;<i class="glyphicon glyphicon-remove-circle"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </font>
+    <!-- END CART MODAL -->
+    <!-- PURCHASE HISTORY MODAL -->
+    <font face="barid">
+        <div class="modal fade" id="history" role="dialog">
+            <div class="modal-dialog" id="cart_mm">
+                <!-- Modal content of Carting....-->
+                <div class="modal-content s">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><font face="barid">Purchase History item(s).</font></h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Order_ID</th>
+                                    <th>Status</th>
+                                    <th>Order_Date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody ng-model="cartItem" ng-repeat="history in PurchaseHistory">
+                                <tr>
+                                    <!--Product No -->
+                                    <td>{{history.OrderID}}</td>
+                                    <td>{{history.Status}}</td>
+                                    <td>{{history.OrderDate}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" ng-click="viewHistoryDetail($index)">DETAIL</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">DONE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </font>
+    <!-- END PURCHASE HISTORY MODAL -->
+    <!-- PURCHASE HISTORY DETAIL MODAL -->
+    <font face="barid">
+        <div class="modal fade" id="history_detail" role="dialog">
+            <div class="modal-dialog" id="cart_mm">
+                <!-- Modal content of Carting....-->
+                <div class="modal-content s">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><font face="barid">All Item(s).</font></h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Product_ID</th>
+                                    <th>Product_Title</th>
+                                    <th>Amount</th>
+                                    <th>Price/Item</th>
+                                    <th>Total Price</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="order in orderDetail">
+                                <tr>
+                                    <!--Product No -->
+                                    <td>{{order.ProductID}}</td>
+                                    <td>{{order.ProductName}}</td>
+                                    <td>{{order.Amount}}</td>
+                                    <td>{{order.SellingPrice}}</td>
+                                    <td>{{order.TotalPrice}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <p>Total Price: {{totalAll_Price_Order}} BTH.</p>
+                        </br>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">DONE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </font>
+    <!-- END PURCHASE HISTORY DETAIL MODAL -->
+    <!-- Regis Modal -->
+    <font face="barid">
+        <div class="modal fade" id="myRegis" role="dialog">
+            <div class="modal-dialog" id="regis_mm">
+                <!-- Modal content of Carting....-->
+                <div class="modal-content s">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><font face="barid"><center>Registration</center></font></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" style="padding-left:2.5%;">
+                            User Information:
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- Username -->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="ll">
+                            <input class="mdl-textfield__input" type="text" id="username_regis" />
+                            <label class="mdl-textfield__label" for="sample3">Username</label>
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- Password -->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="ll">
+                            <input class="mdl-textfield__input" type="password" id="password_regis" />
+                            <label class="mdl-textfield__label" for="sample3">Password</label>
+                        </div>
+                        </br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- FirstName -->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="ll" style="width:90%">
+                            <input class="mdl-textfield__input" type="text" id="firstname_regis" />
+                            <label class="mdl-textfield__label" for="sample3">Name</label>
+                        </div>
+                        </br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- Email -->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="ll">
+                            <input class="mdl-textfield__input" type="email" id="email_regis" />
+                            <label class="mdl-textfield__label" for="sample3">E-Mail</label>
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- Phone -->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="ll">
+                            <input class="mdl-textfield__input" type="text" id="phone_regis" />
+                            <label class="mdl-textfield__label" for="sample3">Phone number (Without '-')</label>
+                        </div>
+                        </br>
+                        <!-- Date Picker -->
+                        <p style="color:#797979;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date of birth(MM/DD/YYYY): &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" id="datepicker">
+                        </p>
+                        </br>
+                        <!-- Gender -->
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gender: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select class="form-control" id="gender_regis" style="width: 90%; margin-left:16px;">
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                        </br>
+                        </br>
+                        <!-- User Address -->
+                        <div class="row" style="padding-left:2.5%;">
+                            User Address:
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- Start Address -->
+                        <div class="mdl-textfield mdl-js-textfield" style="width:90%;">
+                            <textarea class="mdl-textfield__input" type="text" rows="3" id="address_regis"></textarea>
+                            <label class="mdl-textfield__label" for="sample5">Address</label>
+                        </div>
+                        <!-- </br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:90%;">
+                            <input class="mdl-textfield__input" type="text" id="zipcode_regis" />
+                            <label class="mdl-textfield__label" for="sample3">Zipcode</label>
+                        </div> -->
+                        </br>
+                    </div>
+                    <!-- Footer -->
+                    </br>
+                    </br>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" ng-click="confirm_regis()">Confirm</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </font>
+    <!-- End Regis Modal -->
+    <!-- Non-User form -->
+    <font face="barid">
+        <div class="modal fade" id="nonuser_modal" role="dialog">
+            <div class="modal-dialog" id="regis_mm">
+                <!-- Modal content of Carting....-->
+                <div class="modal-content s">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><font face="barid">Non-Member Information.</font></h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Start Address -->
+                        <label>Customer Address: </label>
+                        </br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="mdl-textfield mdl-js-textfield" style="width:90%;">
+                            <textarea class="mdl-textfield__input" type="text" rows="3" id="address_nonuser"></textarea>
+                            <label class="mdl-textfield__label" for="sample5">Address</label>
+                        </div>
+                        </br>
+                        <label>Customer Information: </label>
+                        </br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:90%;">
+                            <input class="mdl-textfield__input" type="text" id="name_nonuser" />
+                            <label class="mdl-textfield__label" for="sample3">Fullname</label>
+                        </div>
+                        </br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:90%;">
+                            <input class="mdl-textfield__input" type="email" id="email_nonuser" />
+                            <label class="mdl-textfield__label" for="sample3">E-Mail</label>
+                        </div>
+                        </br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:90%;">
+                            <input class="mdl-textfield__input" type="text" id="phone_nonuser" />
+                            <label class="mdl-textfield__label" for="sample3">Phone No.</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="mdl-button mdl-js-button mdl-button--accent" ng-click="confirm_purchase_nonuser()" style="color:green;">
+                            <font face="barid">Confirm Information&nbsp;&nbsp;</font>
+                        </button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </font>
+    <!-- End Non-User form -->
+    <!-- User Info Update -->
+    <font face="barid">
+        <div class="modal fade" id="update_info" role="dialog">
+            <div class="modal-dialog" id="regis_mm">
+                <!-- Modal content of Carting....-->
+                <div class="modal-content s">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><font face="barid"><center>Information Editting.</center></font></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" style="padding-left:2.5%;">
+                            User Information:
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- FirstName -->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="ll" style="width:90%;">
+                            <p>Firstname: </p>
+                            <input class="mdl-textfield__input" type="text" id="fullname_update" value="{{firstname_update}}" />
+                        </div>
+                        </br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- Email -->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="ll">
+                            <p>E-Mail: </p>
+                            <input class="mdl-textfield__input" type="email" id="email_update" value="{{email_update}}" />
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- Phone -->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="ll">
+                            <p>Phone No.: </p>
+                            <input class="mdl-textfield__input" type="text" id="phone_update" value="{{phone_update}}" />
+                        </div>
+                        </br>
+                        <!-- Date Picker -->
+                        <!-- <p style="color:#797979;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date of birth(MM/DD/YYYY): &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" id="datepicker_update" value="{{birth_update}}" style="color:black">
+                        </p>
+                        </br> -->
+                        <!-- User Address -->
+                        <div class="row" style="padding-left:2.5%;">
+                            User Address:
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- Start Address -->
+                        <div class="mdl-textfield mdl-js-textfield" style="width:90%;">
+                            <p>Address: </p>
+                            <textarea class="mdl-textfield__input" type="text" rows="3" id="address_update">{{address_update}}</textarea>
+                        </div>
+                        </br>
+                        <!-- Password -->
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="ll" style="width:90%;">
+                            <input class="mdl-textfield__input" type="password" id="password_update" />
+                            <label class="mdl-textfield__label" for="sample3">Confirm Password</label>
+                        </div>
+                    </div>
+                    <!-- Footer -->
+                    </br>
+                    </br>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" ng-click="confirm_update()">Update</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </font>
+    <!-- End User Info Update -->
+</body>
+
+</html>
