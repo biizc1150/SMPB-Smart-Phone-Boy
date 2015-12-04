@@ -1,1 +1,5 @@
-# SPB-Smart-Phone-Boy-
+# SPB-Smart-Phone-Boy
+Final Project
+
+Patipan Premrat
+U5510225
